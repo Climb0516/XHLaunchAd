@@ -11,6 +11,9 @@
 
 
 @interface XHLaunchImageView ()
+{
+    UIViewController *LaunchScreenSb;
+}
 
 @end
 
@@ -53,7 +56,7 @@
         XHLaunchAdLog(@"从 LaunchScreen 中获取启动图失败!");
         return nil;
     }
-    UIViewController *LaunchScreenSb = [[UIStoryboard storyboardWithName:UILaunchStoryboardName bundle:nil] instantiateInitialViewController];
+    LaunchScreenSb = [[UIStoryboard storyboardWithName:UILaunchStoryboardName bundle:nil] instantiateInitialViewController];
     if(LaunchScreenSb){
         UIView * view = LaunchScreenSb.view;
         // 加入到UIWindow后，LaunchScreenSb.view的safeAreaInsets在刘海屏机型才正常。
